@@ -1,0 +1,2 @@
+no packge coloquei "type": "module",
+instalei no código json-viewer/
