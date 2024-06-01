@@ -7,10 +7,10 @@ app.use(express.json());
 
 // mock
 const selecoes = [
-  {id: 1, selecoes: 'Brasil', grupo: 'G'},
-  {id: 2, selecoes: 'Peru', grupo: 'B'},
-  {id: 3, selecoes: 'Ilha de Salomão', grupo: 'F'},
-  {id: 4, selecoes: 'Thaiti', grupo: 'A'}
+  {id: 1, selecao: 'Brasil', grupo: 'G'},
+  {id: 2, selecao: 'Peru', grupo: 'B'},
+  {id: 3, selecao: 'Ilha de Salomão', grupo: 'F'},
+  {id: 4, selecao: 'Thaiti', grupo: 'A'}
 ];
 
 // função auxiliar
@@ -52,6 +52,14 @@ app.delete('/selecoes/:id', (req, res) => {
   let index = buscarIdSelecao(req.params.id);
   selecoes.splice(index, 1);
   res.send(`Seleção com id ${req.params.id} excluida com sucesso!`);
+});
+
+app.put('/selecoes/:id', (req, res) => {
+  let index = buscarIdSelecao(req.params.id);
+  selecoes[index].selecao = req.body.selecao;
+  selecoes[index].grupo = req.body.grupo;
+
+  res.json(selecoes);
 })
 
 export default app;
