@@ -5,16 +5,7 @@ const app = express();
 // indicar para express ler body com json
 app.use(express.json());
 
-// mock
-const selecoes = [
-  {id: 1, selecao: 'Brasil', grupo: 'G'},
-  {id: 2, selecao: 'Peru', grupo: 'B'},
-  {id: 3, selecao: 'Ilha de Salomão', grupo: 'F'},
-  {id: 4, selecao: 'Thaiti', grupo: 'A'}
-];
-
 // função auxiliar
-
 // retornar o objeto por id
 function buscarSelecaoPorId(id) {
   return selecoes.filter((selecao) => selecao.id == id);
